@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+python-multipart
+langchain
+langchain-groq
+langchain-community
+langchain-huggingface
+cassio
+astrapy
+youtube-transcript-api
+pypdf
+wikipedia
+requests
+python-dotenv
+tiktoken
