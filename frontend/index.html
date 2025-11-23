@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omni-Agent Knowledge Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>Omni-Agent</h2>
+                <p>Knowledge Hub</p>
+            </div>
+            
+            <div class="mode-switch">
+                <button id="mode-chat" class="active" onclick="setMode('chat')">🧠 General Knowledge</button>
+                <button id="mode-code" onclick="setMode('code')">💻 Code Assistant</button>
+            </div>
+
+            <div class="ingestion-section">
+                <h3>Ingest Knowledge</h3>
+                
+                <div class="input-group">
+                    <label>YouTube / Web URL</label>
+                    <input type="text" id="url-input" placeholder="https://...">
+                    <button onclick="ingestUrl()">Summarize & Store</button>
+                </div>
+
+                <div class="input-group">
+                    <label>Upload PDF</label>
+                    <input type="file" id="pdf-input" accept=".pdf">
+                    <button onclick="ingestPdf()">Upload & Store</button>
+                </div>
+                
+                <div id="status-msg"></div>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-area">
+            <div class="chat-header">
+                <h3 id="chat-title">General Knowledge Agent</h3>
+                <span class="badge" id="source-badge">LangGraph + AstraDB</span>
+            </div>
+            
+            <div class="chat-history" id="chat-history">
+                <div class="message system">
+                    <div class="content">Hello! I am your Omni-Agent. Ask me anything or switch to Code Mode.</div>
+                </div>
+            </div>
+
+            <div class="chat-input">
+                <textarea id="user-input" placeholder="Type your message..." rows="1"></textarea>
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
